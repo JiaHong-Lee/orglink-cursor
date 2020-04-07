@@ -1,0 +1,8 @@
+#+TITLE:  Orglink-Cursor
+#+AUTHOR: Lee Jia Hong
+#+EMAIL:  jia_hong@live.com.my
+#+DATE:   [2020-04-07 Tue]
+#+KEYWORDS:   emacs org-mode
+
+* Introduction
+See: [[file:~/Dropbox/DropSyncFiles/blog-writing/technical/20200407_ShowingUrlUnderCursorInOrgMode.txt][file:~/Dropbox/DropSyncFiles/blog-writing/technical/20200407_ShowingUrlUnderCursorInOrgMode.txt]]
