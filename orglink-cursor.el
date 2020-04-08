@@ -23,18 +23,18 @@
   :group 'orglink-cursor
   :type 'int)
 
-(defvar orglink-cursor-temporary-stored-raw-link nil
+(defvar orglink-cursor--stored-link nil
   "A variable to hold the raw link at point. When the timer fires, this value is output to the minibuffer area.")
 
-(defvar orglink-cursor-current-timer nil
+(defvar orglink-cursor--current-timer nil
   "A variable keeping track of the current running timer.")
 
-(defun orglink-cursor-display-raw-link ()
+(defun orglink-cursor--display-raw-link ()
   "Display raw link at the echo area. And reset timer."
   (message orglink-cursor-temporary-stored-raw-link)
-  (setq orglink-cursor-current-timer nil))
+  (setq orglink-cursor--current-timer nil))
 
-(defun orglink-cursor-get-raw-link-at-point ()
+(defun orglink-cursor--get-raw-link-at-point ()
   "Extract the raw-link from the org link under cursor. Can be used for debug purposes."
   (let* ((org-context (org-element-context))
          (type (car org-context))
@@ -45,14 +45,14 @@
 ;;;###autoload
 (defun orglink-cursor-display-at-interval ()
   "Reset a timer. And display raw link at interval."
-  (when orglink-cursor-current-timer
-    (cancel-timer orglink-cursor-current-timer))
-  (let ((raw-link (orglink-cursor-get-raw-link-at-point)))
+  (when orglink-cursor--current-timer
+    (cancel-timer orglink-cursor--current-timer))
+  (let ((raw-link (orglink-cursor--get-raw-link-at-point)))
     (if raw-link
-        (setq orglink-cursor-temporary-stored-raw-link raw-link
-              orglink-cursor-current-timer (run-at-time orglink-cursor-timer nil 'orglink-cursor-display-raw-link))
-      (setq orglink-cursor-temporary-stored-raw-link nil
-            orglink-cursor-current-timer nil))))
+        (setq orglink-cursor--stored-link raw-link
+              orglink-cursor--current-timer (run-at-time orglink-cursor-timer nil 'orglink-cursor--display-raw-link))
+      (setq orglink-cursor--stored-link nil
+            orglink-cursor--current-timer nil))))
 
 ;;;###autoload
 (define-minor-mode orglink-cursor-mode
