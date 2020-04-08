@@ -35,7 +35,7 @@
   (setq orglink-cursor-current-timer nil))
 
 (defun orglink-cursor-get-raw-link-at-point ()
-  "Extract the raw-link from the org link under cursor"
+  "Extract the raw-link from the org link under cursor. Can be used for debug purposes."
   (let* ((org-context (org-element-context))
          (type (car org-context))
          (content (cadr org-context)))
