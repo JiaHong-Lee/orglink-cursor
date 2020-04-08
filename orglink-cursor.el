@@ -29,9 +29,13 @@
 (defvar orglink-cursor--current-timer nil
   "A variable keeping track of the current running timer.")
 
+(defun orglink-cursor--format-into-raw-string (output)
+  "Handle % signs in the output string. E.g. \"info:org.info.gz#Adding%20hyperlink%20types\"."
+  (replace-regexp-in-string "%" "%%" output))
+
 (defun orglink-cursor--display-raw-link ()
   "Display raw link at the echo area. And reset timer."
-  (message orglink-cursor-temporary-stored-raw-link)
+  (message (orglink-cursor--format-into-raw-string orglink-cursor--stored-link))
   (setq orglink-cursor--current-timer nil))
 
 (defun orglink-cursor--get-raw-link-at-point ()
