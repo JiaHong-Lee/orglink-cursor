@@ -5,4 +5,4 @@
 #+KEYWORDS:   emacs org-mode
 
 * Introduction
-See: [[file:~/Dropbox/DropSyncFiles/blog-writing/technical/20200407_ShowingUrlUnderCursorInOrgMode.txt][file:~/Dropbox/DropSyncFiles/blog-writing/technical/20200407_ShowingUrlUnderCursorInOrgMode.txt]]
+Org-mode has a feature to display org-links with their descriptions like display the text between html <a> tags instead of the raw link, e.g. [[https://ddg.gg][Duckduckgo]]. Similar to web browsers, I want to display the underlying link in the minibuffer when I place my cursor under the org-links. This is similar to what the package github:flymake/emacs-flymake-cursor does. So I'll define a minor mode for org-mode called ~orglink-cursor~.

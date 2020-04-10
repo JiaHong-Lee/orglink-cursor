@@ -3,15 +3,21 @@
 ;; Copyright (C) 2020 Lee Jia Hong
 
 ;; Author   : Lee Jia Hong <jiahong@zacque.tk>
+;; Maintainer: Lee Jia Hong
+;; URL: https://github.com/JiaHong-Lee/orglink-cursor
 ;; Created  : 7th April 2020
-;; Modified :
 ;; Version  : 0.0.1
 ;; Keywords : org-mode
-;;
+;; Package-Requires: ((org "?"))
+
+;; This file is NOT part of GNU Emacs.
+
+;; This file is a free software (MIT License).
+
 ;;; Commentary:
 ;; Provides a minor-mode to display org raw link in minibuffer.
 
-;;; code:
+;;; Code:
 
 (defgroup orglink-cursor nil
   "orglink-cursor"
