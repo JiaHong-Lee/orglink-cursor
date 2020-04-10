@@ -31,7 +31,9 @@
 
 (defun orglink-cursor--format-into-raw-string (output)
   "Handle % signs in the output string. E.g. \"info:org.info.gz#Adding%20hyperlink%20types\"."
-  (replace-regexp-in-string "%" "%%" output))
+  (let* ((result (replace-regexp-in-string "%20" " " output))
+         (result (replace-regexp-in-string "%" "%%" result)))
+    result))
 
 (defun orglink-cursor--display-raw-link ()
   "Display raw link at the echo area. And reset timer."
